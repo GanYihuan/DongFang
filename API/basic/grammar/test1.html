@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>React第一个例子</title>
+  <script type="text/javascript" src="react.js"></script>
+  <script type="text/javascript" src="react-dom.js"></script>
+  <script type="text/javascript" src="browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+  var HelloMessage = React.createClass(
+      {
+        render: function () {
+          return <h1 style={{color: '#f00', fontSize: '24px'}}>
+            Hello {this.props.name}!我是东方耀
+          </h1>;
+          //这是注释  React.createElement
+        }
+      }
+  );
+
+  ReactDOM.render(
+          <HelloMessage name="React 语法基础8"/>,
+      document.getElementById('example')
+  );
+</script>
+</body>
+</html>
