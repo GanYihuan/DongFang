@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>React组件通信</title>
+  <script type="text/javascript" src="react.js"></script>
+  <script type="text/javascript" src="react-dom.js"></script>
+  <script type="text/javascript" src="browser.min.js"></script>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+  let Parent = React.createClass({
+    click: function () {
+      this.refs.child.getDOMNode().style.color = "red";
+    },
+
+    render: function () {
+      return (
+              <div onClick={this.click}>
+                Parent is :
+                <Child name={this.props.name} ref="child"></Child>
+//                this -> let Parent
+//                name -> child 自己的name
+              </div>
+      );
+    }
+  });
+
+  let Child = React.createClass({
+    render: function () {
+      return <span> {this.props.name} </span>;
+    }
+  });
+
+  ReactDOM.render(
+          <Parent name="React语法基础"/>,
+      document.getElementById('example')
+  );
+</script>
+
+</body>
+</html>

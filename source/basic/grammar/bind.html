@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>React事件绑定</title>
+  <script type="text/javascript" src="react.js"></script>
+  <script type="text/javascript" src="react-dom.js"></script>
+  <script type="text/javascript" src="browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+
+  function testClick(msg) {
+    alert(msg);
+  }
+
+  var app = <button onClick={testClick.bind(this, 'hello')} style={{
+    backgroundColor: '#ff0000',
+    fontSize: '28px',
+    width: '200px',
+    height: '100px'
+
+  }}>点击我吧</button>
+
+  React.render(app, document.getElementById('example'));
+</script>
+</body>
+</html>
